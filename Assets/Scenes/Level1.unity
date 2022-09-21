@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rb: {fileID: 57193251}
-  speed: 1
+  speed: 15
   minSwipeRecognition: 500
 --- !u!1 &71188296
 GameObject:
