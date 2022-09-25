@@ -18,10 +18,15 @@ public class BallController : MonoBehaviour
 
     private Color solveColor;
 
+    public AudioClip moveSound;
+    private AudioSource playerAudio;
+
     private void Start()
     {
         solveColor = Random.ColorHSV(0.5f, 1);
         GetComponent<MeshRenderer>().material.color = solveColor;
+
+        playerAudio = GetComponent<AudioSource>();
     }
 
 
@@ -61,9 +66,12 @@ public class BallController : MonoBehaviour
         {
             swipePosCurrentFrame = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
+
             if (swipePosLastFrame != Vector2.zero)
             {
                 currentSwipe = swipePosCurrentFrame - swipePosLastFrame;
+
+                playerAudio.PlayOneShot(moveSound, 1.0f);
 
                 if (currentSwipe.sqrMagnitude < minSwipeRecognition)
                 {
